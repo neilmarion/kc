@@ -75,7 +75,6 @@ function capturePhoto() {
 
 function getPhoto() {
   // Retrieve image file location from specified source
-  alert(destinationType.FILE_URI);
   navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
     destinationType: destinationType.FILE_URI,
     sourceType: pictureSource.PHOTOLIBRARY });
