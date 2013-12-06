@@ -19,6 +19,8 @@
 var pictureSource;   // picture source
 var destinationType; // sets the format of returned value
 
+var destinations = {'moa': {'lat': '14.535089', 'lng' : '120.983698'}, 'megamall' : {'lat': '14.584373', 'lng' : '121.059154'}, 'north' : {'lat': '14.657074', 'lng' : '121.032515'}, 'robinsons' : {'lat': '14.614809', 'lng' : '121.039118'}}
+
 var app = {
   // Application Constructor
   initialize: function() {
@@ -93,7 +95,8 @@ function onErrorMap(error) {
   alert('code: ' + error.code + ' mesasge ' + error.message);
 }
 
-function gotoMap() {
+function gotoMap(dst) {
+  localStorage.setItem('dst', dst); 
   navigator.geolocation.getCurrentPosition(onSuccessMap, onErrorMap);
 }
 
@@ -123,7 +126,7 @@ $(document).on("pageshow", "#directions_map", function () {
         //var latlng = new google.maps.LatLng(14.4559, 120.9820);
         self.get('map').panTo(latlng);
 
-        self.displayDirections({ 'origin': new google.maps.LatLng(lat, lng), 'destination': new google.maps.LatLng(14.534819, 120.997839), 'travelMode': google.maps.DirectionsTravelMode.DRIVING }, { 'panel': document.getElementById('directions')}, function(response, status) {
+        self.displayDirections({ 'origin': new google.maps.LatLng(lat, lng), 'destination': new google.maps.LatLng(destinations[localStorage.getItem('dst')]['lat'], destinations[localStorage.getItem('dst')]['lng']), 'travelMode': google.maps.DirectionsTravelMode.DRIVING }, { 'panel': document.getElementById('directions')}, function(response, status) {
           ( status === 'OK' ) ? $('#results').show() : $('#results').hide();
         });
     }});
