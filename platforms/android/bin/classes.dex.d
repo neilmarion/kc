@@ -61,6 +61,11 @@
 /home/neil/DEV/kc/platforms/android/bin/classes/org/apache/cordova/camera/FileHelper.class \
 /home/neil/DEV/kc/platforms/android/bin/classes/org/apache/cordova/camera/ExifHelper.class \
 /home/neil/DEV/kc/platforms/android/bin/classes/org/apache/cordova/camera/CameraLauncher.class \
+/home/neil/DEV/kc/platforms/android/bin/classes/org/apache/cordova/geolocation/GPSListener.class \
+/home/neil/DEV/kc/platforms/android/bin/classes/org/apache/cordova/geolocation/GeoBroker.class \
+/home/neil/DEV/kc/platforms/android/bin/classes/org/apache/cordova/geolocation/NetworkListener.class \
+/home/neil/DEV/kc/platforms/android/bin/classes/org/apache/cordova/geolocation/CordovaLocationListener$LocationTimeoutTask.class \
+/home/neil/DEV/kc/platforms/android/bin/classes/org/apache/cordova/geolocation/CordovaLocationListener.class \
 /home/neil/DEV/kc/platforms/android/bin/classes/org/apache/cordova/mediacapture/FileHelper.class \
 /home/neil/DEV/kc/platforms/android/bin/classes/org/apache/cordova/mediacapture/Capture$2.class \
 /home/neil/DEV/kc/platforms/android/bin/classes/org/apache/cordova/mediacapture/Capture.class \

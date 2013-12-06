@@ -173,11 +173,17 @@
 /home/neil/DEV/kc/platforms/android/assets/www/spec/lib/jasmine-1.2.0/jasmine.css \
 /home/neil/DEV/kc/platforms/android/assets/www/spec/lib/jasmine-1.2.0/jasmine-html.js \
 /home/neil/DEV/kc/platforms/android/assets/www/spec/lib/jasmine-1.2.0/jasmine.js \
+/home/neil/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.geolocation \
 /home/neil/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.inappbrowser \
 /home/neil/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.media-capture \
 /home/neil/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.media \
 /home/neil/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.camera \
 /home/neil/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.file \
+/home/neil/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.geolocation/www \
+/home/neil/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.geolocation/www/geolocation.js \
+/home/neil/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.geolocation/www/Coordinates.js \
+/home/neil/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.geolocation/www/Position.js \
+/home/neil/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.geolocation/www/PositionError.js \
 /home/neil/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.inappbrowser/www \
 /home/neil/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.inappbrowser/www/InAppBrowser.js \
 /home/neil/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.media-capture/www \

@@ -75,13 +75,27 @@ function onFail(message) {
   alert('Failed because: ' + message);
 }
 
-// 2. Pathfinder
+// 2. yabu.ph site 
 
 function gotoSite() {
   window.open("http://yabu.ph", '_blank', 'location=no');
 }
 
-function gotoMap() {
+// 3. pathfinder
 
+function onSuccessMap(position) {
+  alert("hello");
+  changePage('#location');
+  var element = document.getElementById('geolocation'); 
+  element.innerHTML = "Latitude: " + position.coords.latitude + "Longitude: " + position.coords.longitude;
+}
+
+function onErrorMap(error) {
+    alert('code: ' + error.code + ' mesasge ' + error.message);
+}
+
+function gotoMap() {
+    alert("hello");
+    navigator.geolocation.getCurrentPosition(onSuccessMap, onErrorMap);
 }
 
