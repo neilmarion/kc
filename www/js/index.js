@@ -67,3 +67,7 @@ function onPhotoDataSuccess(imageData) {
   changePage('#edit-photo');
 }
 
+function onFail(message) {
+  alert('Failed because: ' + message);
+}
+
