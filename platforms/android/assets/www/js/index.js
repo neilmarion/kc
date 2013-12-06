@@ -138,4 +138,31 @@ $(document).on("pageshow", "#directions_map", function () {
   //element.innerHTML = "Latitude: " + position.coords.latitude + "Longitude: " + position.coords.longitude;
 });
 
+// 4. Upload photo to yabu.ph
 
+function uploadPhoto() {
+    photoFileName = $('#photo').attr('src');
+    var options = new FileUploadOptions();
+    options.fileKey="avatar";
+    options.fileName=photoFileName.substr(photoFileName.lastIndexOf('/')+1)+'.jpg';
+    options.mimeType="image/jpg";
+
+    var params = new Object();
+    options.params = params;
+
+    var ft = new FileTransfer();
+    ft.upload(photoFileName, encodeURI("http://www.testphotorestapi.neilmarion.com/upload"), onSuccessUpload, onFailUpload, options);
+}
+
+function onSuccessUpload(r) {
+    console.log("Code = " + r.responseCode);
+    console.log("Response = " + r.response);
+    console.log("Sent = " + r.bytesSent);
+}
+
+function onFailUpload(error) {
+    console.log(error);
+    alert("An error has occurred: Code = " + error.code);
+    console.log("upload error source " + error.source);
+    console.log("upload error target " + error.target);
+}

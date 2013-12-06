@@ -47,6 +47,7 @@
 /home/neilmarion/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.inappbrowser \
 /home/neilmarion/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.media \
 /home/neilmarion/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.camera \
+/home/neilmarion/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.file-transfer \
 /home/neilmarion/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.file \
 /home/neilmarion/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.geolocation/www \
 /home/neilmarion/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.geolocation/www/Position.js \
@@ -71,6 +72,9 @@
 /home/neilmarion/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.camera/www/Camera.js \
 /home/neilmarion/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.camera/www/CameraPopoverHandle.js \
 /home/neilmarion/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.camera/www/CameraPopoverOptions.js \
+/home/neilmarion/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.file-transfer/www \
+/home/neilmarion/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.file-transfer/www/FileTransferError.js \
+/home/neilmarion/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.file-transfer/www/FileTransfer.js \
 /home/neilmarion/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.file/www \
 /home/neilmarion/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.file/www/Entry.js \
 /home/neilmarion/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.file/www/resolveLocalFileSystemURI.js \
