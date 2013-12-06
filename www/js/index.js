@@ -56,7 +56,7 @@ var app = {
 };
 
 function changePage(page){
-   $.mobile.changePage( page, { transition: "slideup", changeHash: false }); 
+   $.mobile.changePage( page, { transition: "none", changeHash: false }); 
 }
 
 // 1. Capturing Photo
