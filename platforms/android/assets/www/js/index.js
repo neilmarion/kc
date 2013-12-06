@@ -38,9 +38,9 @@ var app = {
   // The scope of 'this' is the event. In order to call the 'receivedEvent'
   // function, we must explicity call 'app.receivedEvent(...);'
   onDeviceReady: function() {
-    app.receivedEvent('deviceready');
     pictureSource=navigator.camera.PictureSourceType;
     destinationType=navigator.camera.DestinationType;
+    app.receivedEvent('deviceready');
   },
   // Update DOM on a Received Event
   receivedEvent: function(id) {
@@ -66,11 +66,19 @@ function back() {
   history.back();
 }
 
-// 1. Capturing Photo
+// 1. Capturing / Retrieving Photo
 
 function capturePhoto() {
   // Take picture using device camera and retrieve image as base64-encoded string
   navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50, correctOrientation: true });
+}
+
+function getPhoto() {
+  // Retrieve image file location from specified source
+  alert(destinationType.FILE_URI);
+  navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
+    destinationType: destinationType.FILE_URI,
+    sourceType: pictureSource.PHOTOLIBRARY });
 }
 
 // Called when a photo is successfully retrieved
