@@ -75,3 +75,13 @@ function onFail(message) {
   alert('Failed because: ' + message);
 }
 
+// 2. Pathfinder
+
+function gotoSite() {
+  window.open("http://yabu.ph", '_blank', 'location=no');
+}
+
+function gotoMap() {
+
+}
+
