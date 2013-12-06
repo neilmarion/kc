@@ -54,6 +54,9 @@
     <feature name="SplashScreen">
       <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
     </feature>
+    <feature name="SocialSharing">
+      <param name="android-package" value="nl.xservices.plugins.SocialSharing" />
+    </feature>
     <access origin="*" />
     <content src="index.html" />
 </widget>
