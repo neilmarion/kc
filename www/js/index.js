@@ -53,11 +53,15 @@ var app = {
   }
 };
 
+function changePage(page){
+   $.mobile.changePage( page, { transition: "slideup", changeHash: false }); 
+}
+
 // 1. Capturing Photo
 
 function capturePhoto() {
   // Take picture using device camera and retrieve image as base64-encoded string
-  navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50 });
+  navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50, correctOrientation: true });
 }
 
 // Called when a photo is successfully retrieved
