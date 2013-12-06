@@ -141,6 +141,7 @@ $(document).on("pageshow", "#directions_map", function () {
 // 4. Upload photo to yabu.ph
 
 function uploadPhoto() {
+    navigator.splashscreen.show();
     photoFileName = $('#photo').attr('src');
     var options = new FileUploadOptions();
     options.fileKey="avatar";
@@ -152,6 +153,7 @@ function uploadPhoto() {
 
     var ft = new FileTransfer();
     ft.upload(photoFileName, encodeURI("http://www.testphotorestapi.neilmarion.com/upload"), onSuccessUpload, onFailUpload, options);
+    navigator.splashscreen.hide();
 }
 
 function onSuccessUpload(r) {
