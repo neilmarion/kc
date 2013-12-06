@@ -84,37 +84,34 @@ function gotoSite() {
 // 3. pathfinder
 
 function onSuccessMap(position) {
-  changePage('#location');
+  var mobileDemo = { 'center': position.coords.latitude + ',' + position.coords.longitude, 'zoom': 10 };
+  changePage('#directions_map');
+
+  demo.add('directions_map', function() {
+    $('#map_canvas_1').gmap({'center': mobileDemo.center, 'zoom': mobileDemo.zoom, 'disableDefaultUI':true, 'callback': function() {
+      var self = this;
+
+        var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+        //var latlng = new google.maps.LatLng(14.4559, 120.9820);
+        self.get('map').panTo(latlng);
+
+        self.displayDirections({ 'origin': new google.maps.LatLng(position.coords.latitude, position.coords.longitude), 'destination': new google.maps.LatLng(14.534819, 120.997839), 'travelMode': google.maps.DirectionsTravelMode.DRIVING }, { 'panel': document.getElementById('directions')}, function(response, status) {
+          ( status === 'OK' ) ? $('#results').show() : $('#results').hide();
+        });
+    }});
+  }).load('directions_map');
+  $('#map_canvas_1').css('width', '100%');
+
   var element = document.getElementById('geolocation'); 
   element.innerHTML = "Latitude: " + position.coords.latitude + "Longitude: " + position.coords.longitude;
 }
 
 function onErrorMap(error) {
-    alert('code: ' + error.code + ' mesasge ' + error.message);
+  alert('code: ' + error.code + ' mesasge ' + error.message);
 }
 
 function gotoMap() {
-	  var mobileDemo = { 'center': '14.559,120.9820', 'zoom': 10 };
-    changePage('#directions_map');
-    demo.add('directions_map', function() {
-      $('#map_canvas_1').gmap({'center': mobileDemo.center, 'zoom': mobileDemo.zoom, 'disableDefaultUI':true, 'callback': function() {
-        var self = this;
-
-          //var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-          var latlng = new google.maps.LatLng(14.4559, 120.9820);
-          self.get('map').panTo(latlng);
-          //self.search({ 'location': latlng }, function(results, status) {
-          //  if ( status === 'OK' ) {
-          //    $('#from').val(results[0].formatted_address);
-          //  }
-          //});
-
-          self.displayDirections({ 'origin': new google.maps.LatLng(14.559, 120.9820), 'destination': new google.maps.LatLng(14.534819, 120.997839), 'travelMode': google.maps.DirectionsTravelMode.DRIVING }, { 'panel': document.getElementById('directions')}, function(response, status) {
-            ( status === 'OK' ) ? $('#results').show() : $('#results').hide();
-          });
-      }});
-    }).load('directions_map');
-    //navigator.geolocation.getCurrentPosition(onSuccessMap, onErrorMap);
+  navigator.geolocation.getCurrentPosition(onSuccessMap, onErrorMap);
 }
 
 
