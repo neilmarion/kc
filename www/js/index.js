@@ -100,7 +100,8 @@ function onSuccessMap(position) {
         });
     }});
   }).load('directions_map');
-  $('#map_canvas_1').css('width', '100%');
+  $('#map_canvas_1').css('height',getRealContentHeight());
+  //$('#map_canvas_1').css('width', '100%');
 
   var element = document.getElementById('geolocation'); 
   element.innerHTML = "Latitude: " + position.coords.latitude + "Longitude: " + position.coords.longitude;
@@ -112,6 +113,19 @@ function onErrorMap(error) {
 
 function gotoMap() {
   navigator.geolocation.getCurrentPosition(onSuccessMap, onErrorMap);
+}
+
+function getRealContentHeight() {
+    var header = $.mobile.activePage.find("div[data-role='header']:visible");
+    //var footer = $.mobile.activePage.find("div[data-role='footer']:visible");
+    var content = $.mobile.activePage.find("div[data-role='content']:visible:visible");
+    var viewport_height = $(window).height();
+
+    var content_height = viewport_height - header.outerHeight() - footer.outerHeight();
+    if((content.outerHeight() - header.outerHeight() - footer.outerHeight()) <= viewport_height) {
+        content_height -= (content.outerHeight() - content.height());
+    } 
+    return content_height;
 }
 
 
