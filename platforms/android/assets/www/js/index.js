@@ -53,11 +53,15 @@ var app = {
   }
 };
 
+function changePage(page){
+   $.mobile.changePage( page, { transition: "slideup", changeHash: false }); 
+}
+
 // 1. Capturing Photo
 
 function capturePhoto() {
   // Take picture using device camera and retrieve image as base64-encoded string
-  navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50 });
+  navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50, correctOrientation: true });
 }
 
 // Called when a photo is successfully retrieved
@@ -65,5 +69,19 @@ function capturePhoto() {
 function onPhotoDataSuccess(imageData) {
   $('#captured-image').html('<img id="photo" style="max-width:100%" src="'+imageData+'" />');
   changePage('#edit-photo');
+}
+
+function onFail(message) {
+  alert('Failed because: ' + message);
+}
+
+// 2. Pathfinder
+
+function gotoSite() {
+  window.open("http://yabu.ph", '_blank', 'location=no');
+}
+
+function gotoMap() {
+
 }
 

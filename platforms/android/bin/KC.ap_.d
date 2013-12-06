@@ -173,10 +173,13 @@
 /home/neil/DEV/kc/platforms/android/assets/www/spec/lib/jasmine-1.2.0/jasmine.css \
 /home/neil/DEV/kc/platforms/android/assets/www/spec/lib/jasmine-1.2.0/jasmine-html.js \
 /home/neil/DEV/kc/platforms/android/assets/www/spec/lib/jasmine-1.2.0/jasmine.js \
+/home/neil/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.inappbrowser \
 /home/neil/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.media-capture \
 /home/neil/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.media \
 /home/neil/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.camera \
 /home/neil/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.file \
+/home/neil/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.inappbrowser/www \
+/home/neil/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.inappbrowser/www/InAppBrowser.js \
 /home/neil/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.media-capture/www \
 /home/neil/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.media-capture/www/CaptureImageOptions.js \
 /home/neil/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.media-capture/www/CaptureError.js \
