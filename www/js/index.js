@@ -19,6 +19,9 @@
 var pictureSource;   // picture source
 var destinationType; // sets the format of returned value
 
+var destinations = {'moa': {'lat': '14.535089', 'lng' : '120.983698'}, 'megamall' : {'lat': '14.584373', 'lng' : '121.059154'}, 'north' : {'lat': '14.657074', 'lng' : '121.032515'}, 'robinsons' : {'lat': '14.614809', 'lng' : '121.039118'}}
+localStorage.setItem()
+
 var app = {
   // Application Constructor
   initialize: function() {
