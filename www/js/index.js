@@ -84,8 +84,9 @@ function gotoSite() {
 // 3. pathfinder
 
 function onSuccessMap(position) {
-  var element = $('#geolocation');
-  element.html("Latitude: " + position.coords.latitude + "Longitude: " + position.coords.longitude);
+  var element = document.getElementById('geolocation'); 
+  element.innerHTML = "Latitude: " + position.coords.latitude + "Longitude: " + position.coords.longitude;
+  changePage('#location');
 }
 
 function onErrorMap(error) {
@@ -94,6 +95,5 @@ function onErrorMap(error) {
 
 function gotoMap() {
     navigator.geolocation.getCurrentPosition(onSuccessMap, onErrorMap);
-    changePage('#location');
 }
 
