@@ -43,6 +43,7 @@
 /home/neilmarion/DEV/kc/platforms/android/bin/classes/org/apache/cordova/media/AudioPlayer$STATE.class \
 /home/neilmarion/DEV/kc/platforms/android/bin/classes/org/apache/cordova/media/FileHelper.class \
 /home/neilmarion/DEV/kc/platforms/android/bin/classes/org/apache/cordova/media/AudioPlayer$1.class \
+/home/neilmarion/DEV/kc/platforms/android/bin/classes/org/apache/cordova/splashscreen/SplashScreen.class \
 /home/neilmarion/DEV/kc/platforms/android/bin/classes/org/apache/cordova/file/FileUtils$15.class \
 /home/neilmarion/DEV/kc/platforms/android/bin/classes/org/apache/cordova/file/FileUtils$7.class \
 /home/neilmarion/DEV/kc/platforms/android/bin/classes/org/apache/cordova/file/NoModificationAllowedException.class \

@@ -42,6 +42,7 @@
 /home/neilmarion/DEV/kc/platforms/android/assets/www/spec/lib/jasmine-1.2.0/jasmine.js \
 /home/neilmarion/DEV/kc/platforms/android/assets/www/spec/lib/jasmine-1.2.0/jasmine-html.js \
 /home/neilmarion/DEV/kc/platforms/android/assets/www/img/logo.png \
+/home/neilmarion/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.splashscreen \
 /home/neilmarion/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.geolocation \
 /home/neilmarion/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.media-capture \
 /home/neilmarion/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.inappbrowser \
@@ -49,6 +50,8 @@
 /home/neilmarion/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.camera \
 /home/neilmarion/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.file-transfer \
 /home/neilmarion/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.file \
+/home/neilmarion/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.splashscreen/www \
+/home/neilmarion/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.splashscreen/www/splashscreen.js \
 /home/neilmarion/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.geolocation/www \
 /home/neilmarion/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.geolocation/www/Position.js \
 /home/neilmarion/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.geolocation/www/Coordinates.js \

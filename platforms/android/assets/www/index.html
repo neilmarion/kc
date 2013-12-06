@@ -32,15 +32,16 @@
       <div data-role="header">
         <h1>Katsu Craze!</h1>
       </div><!-- /header -->
-        <input type="button" id="take-photo" onclick="gotoSite();" value="Yabu.ph" data-theme="a">
-        <p>
-          <a href="#info" data-role="button" data-theme="b" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-b">
-            <span class="ui-btn-inner ui-btn-corner-all"> 
-              <span class="ui-btn-text">Info</span>
-            </span>
-          </a>
-        </p>
+      <div data-role="content">
         <input type="button" id="take-photo" onclick="capturePhoto();" value="Take Photo" data-theme="a">
+        <input type="button" id="take-photo" value="Photo Library" data-theme="a">
+        <input type="button" id="take-photo" value="Katsucraze Gallery" data-theme="a">
+        <input type="button" id="take-photo" onclick="gotoSite();" value="Visit Yabu.ph" data-theme="a">
+        <a href="#info" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-a">
+          <span class="ui-btn-inner ui-btn-corner-all"> 
+            <span class="ui-btn-text">Info</span>
+          </span>
+        </a>
       </div><!-- /content -->
     </div><!-- /page -->
 
@@ -52,7 +53,7 @@
       <div data-role="content">	
         <div id="captured-image"></div>
         <p>
-          <a href="#home" data-role="button" data-theme="b" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-b">
+          <a href="#home" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-b">
             <span class="ui-btn-inner ui-btn-corner-all"> 
               <span class="ui-btn-text">Home</span>
             </span>
@@ -65,16 +66,16 @@
     <!-- Start of third page (Pathfinder) -->
     <div data-role="page" id="info" data-theme="a">
       <div data-role="header">
+        <a onclick="back()">Back</a>
         <h1>Info</h1>
       </div><!-- /header -->
       <div data-role="content">	
-        <p id="geolocation">Finding geolocation...</p>
         <input type="button" id="take-photo" onclick="gotoMap('moa');" value="SM Mall of Asia" data-theme="a">
         <input type="button" id="take-photo" onclick="gotoMap('megamall');" value="SM Megamall" data-theme="a">
         <input type="button" id="take-photo" onclick="gotoMap('north');" value="SM North EDSA" data-theme="a">
         <input type="button" id="take-photo" onclick="gotoMap('robinsons');" value="Robinsons Magnolia" data-theme="a">
         <p>
-          <a href="#home" data-role="button" data-theme="b" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-b">
+          <a href="#home" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-b">
             <span class="ui-btn-inner ui-btn-corner-all"> 
               <span class="ui-btn-text">Home</span>
             </span>

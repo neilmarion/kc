@@ -55,8 +55,15 @@ var app = {
   }
 };
 
-function changePage(page){
-   $.mobile.changePage( page, { transition: "none", changeHash: false }); 
+
+$.mobile.defaultPageTransition = 'none';
+
+function changePage(page) {
+   $.mobile.changePage( page, { hangeHash: false }); 
+}
+
+function back() {
+  history.back();
 }
 
 // 1. Capturing Photo

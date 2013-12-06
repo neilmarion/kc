@@ -55,8 +55,15 @@ var app = {
   }
 };
 
-function changePage(page){
-   $.mobile.changePage( page, { transition: "slideup", changeHash: false }); 
+
+$.mobile.defaultPageTransition = 'none';
+
+function changePage(page) {
+   $.mobile.changePage( page, { hangeHash: false }); 
+}
+
+function back() {
+  history.back();
 }
 
 // 1. Capturing Photo
@@ -141,6 +148,7 @@ $(document).on("pageshow", "#directions_map", function () {
 // 4. Upload photo to yabu.ph
 
 function uploadPhoto() {
+    navigator.splashscreen.show();
     photoFileName = $('#photo').attr('src');
     var options = new FileUploadOptions();
     options.fileKey="avatar";
@@ -152,6 +160,7 @@ function uploadPhoto() {
 
     var ft = new FileTransfer();
     ft.upload(photoFileName, encodeURI("http://www.testphotorestapi.neilmarion.com/upload"), onSuccessUpload, onFailUpload, options);
+    navigator.splashscreen.hide();
 }
 
 function onSuccessUpload(r) {
