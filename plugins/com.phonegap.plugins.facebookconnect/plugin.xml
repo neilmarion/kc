@@ -29,8 +29,8 @@
       <access origin="https://*.akamaihd.net" />
     </config-file>
     
-    <preference name="423970834369237" />
-	  <preference name="neilmarion-mobile" />
+    <preference name="470089076435075" />
+	  <preference name="phonegapprotoone" />
     
     <engines>
       <engine name="cordova" version=">=3.0.0" />

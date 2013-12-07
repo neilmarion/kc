@@ -40,7 +40,7 @@ var app = {
   onDeviceReady: function() {
     pictureSource=navigator.camera.PictureSourceType;
     destinationType=navigator.camera.DestinationType;
-    FB.init({ appId: "423970834369237", nativeInterface: CDV.FB, useCachedDialogs: false });
+    FB.init({ appId: "470089076435075", nativeInterface: CDV.FB, useCachedDialogs: false });
     app.receivedEvent('deviceready');
   },
   // Update DOM on a Received Event
