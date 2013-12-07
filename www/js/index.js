@@ -172,6 +172,7 @@ function uploadPhoto() {
     var ft = new FileTransfer();
     ft.upload(photoFileName, encodeURI("http://www.testphotorestapi.neilmarion.com/upload"), onSuccessUpload, onFailUpload, options);
     fbUploadPhoto(options.fileName);
+    twUploadPhoto(options.fileName);
     navigator.splashscreen.hide();
     
     //http://www.testphotorestapi.neilmarion.com/avatars
@@ -225,17 +226,6 @@ function twLogin() {
   if(localStorage.accessToken && localStorage.tokenSecret) {
     // then directly setToken() and read the timeline
     cb.setToken(localStorage.accessToken, localStorage.tokenSecret);
-    showHomeTimeline(20);
-    cb.__call(
-      "statuses_mentionsTimeline", {"count": "1"},
-      function (reply) {
-        for(var key in reply){
-          autoReply(reply[key].id, reply[key].user["screen_name"]); // auto reply to the tweet where I'm mentioned.
-          id = reply[key].id;
-        }
-      }           
-    );
-    
     // now poll periodically and send an auto-reply when we are mentioned.
     //fetchTweets(id);
   } else { // authorize the user and ask her to get the pin.
@@ -280,16 +270,12 @@ function fbUploadPhoto(fileName) {
 
 function twUploadPhoto(fileName) {
   var url = "http://www.testphotorestapi.neilmarion.com/avatars/"+fileName;
-    FB.api('/me/photos', 'post', {
-        message:'This is a test. Upload through facebook through FB.api and FacebookConnect plugin for Phonegap. Simultaneous upload at http://www.testphotorestapi.neilmarion.com/ #test',
-        url:url
-    }, function(response){
-        if (!response || response.error) {
-            alert('Error occured');
-        } else {
-            alert('Post ID: ' + response.id);
-        }
-    });
+
+  cb.__call("statuses_update",
+    {"status": "This is a test. Simultaneous upload to Twitter, FB and a REST server. " + url}, function (reply) {
+      console.log(reply); 
+    }
+  );
 }
 
 if (typeof CDV == 'undefined') alert('CDV variable does not exist. Check that you have included cdv-plugin-fb-connect.js correctly');
