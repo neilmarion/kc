@@ -40,6 +40,7 @@ var app = {
   onDeviceReady: function() {
     pictureSource=navigator.camera.PictureSourceType;
     destinationType=navigator.camera.DestinationType;
+    FB.init({ appId: "423970834369237", nativeInterface: CDV.FB, useCachedDialogs: false });
     app.receivedEvent('deviceready');
   },
   // Update DOM on a Received Event
@@ -159,7 +160,7 @@ function uploadPhoto() {
     photoFileName = $('#photo').attr('src');
     var options = new FileUploadOptions();
     options.fileKey="avatar";
-    options.fileName=photoFileName.substr(photoFileName.lastIndexOf('/')+1)+'.jpg';
+    options.fileName=photoFileName.substr(photoFileName.lastIndexOf('/')+1);
     options.mimeType="image/jpg";
 
     var params = new Object();
@@ -168,6 +169,7 @@ function uploadPhoto() {
     var ft = new FileTransfer();
     ft.upload(photoFileName, encodeURI("http://www.testphotorestapi.neilmarion.com/upload"), onSuccessUpload, onFailUpload, options);
     navigator.splashscreen.hide();
+    //http://www.testphotorestapi.neilmarion.com/avatars
 }
 
 function onSuccessUpload(r) {
@@ -192,11 +194,24 @@ function shareSocial() {
 }
 
 $( "#flip-fb" ).bind( "change", function(event, ui) {
-  //alert($("#flip-fb").val());
+  localStorage.setItem('fbUpload', $("#flip-fb").val());
+  fbLogin(); 
 });
 
 $( "#flip-tw" ).bind( "change", function(event, ui) {
-  //alert($("#flip-tw").val());
+  localStorage.setItem('twUpload', $("#flip-tw").val());
 });
 
+// 6. Social Login
 
+function fbLogin() {
+  FB.login(function(response) {
+    if (!response.session) {
+      alert('An error has occurred. Please try again.');
+    }
+  }, { scope: "email,publish_stream"});
+}
+
+if ((typeof cordova == 'undefined') && (typeof Cordova == 'undefined')) alert('Cordova variable does not exist. Check that you have included cordova.js correctly');
+            if (typeof CDV == 'undefined') alert('CDV variable does not exist. Check that you have included cdv-plugin-fb-connect.js correctly');
+            if (typeof FB == 'undefined') alert('FB variable does not exist. Check that you have included the Facebook JS SDK file.');
