@@ -225,7 +225,6 @@ function twLogin() {
   if(localStorage.accessToken && localStorage.tokenSecret) {
     // then directly setToken() and read the timeline
     cb.setToken(localStorage.accessToken, localStorage.tokenSecret);
-              alert("men2");
     showHomeTimeline(20);
     cb.__call(
       "statuses_mentionsTimeline", {"count": "1"},
@@ -245,8 +244,6 @@ function twLogin() {
           {oauth_callback: "http://www.neilmarion.com"},
           function (reply) {
           // nailed it!
-              alert("men");
-              console.log("men");
               console.log(reply);
               cb.setToken(reply.oauth_token, reply.oauth_token_secret);
               cb.__call(
@@ -268,6 +265,20 @@ function twLogin() {
 }
 
 function fbUploadPhoto(fileName) {
+  var url = "http://www.testphotorestapi.neilmarion.com/avatars/"+fileName;
+    FB.api('/me/photos', 'post', {
+        message:'This is a test. Upload through facebook through FB.api and FacebookConnect plugin for Phonegap. Simultaneous upload at http://www.testphotorestapi.neilmarion.com/ #test',
+        url:url
+    }, function(response){
+        if (!response || response.error) {
+            alert('Error occured');
+        } else {
+            alert('Post ID: ' + response.id);
+        }
+    });
+}
+
+function twUploadPhoto(fileName) {
   var url = "http://www.testphotorestapi.neilmarion.com/avatars/"+fileName;
     FB.api('/me/photos', 'post', {
         message:'This is a test. Upload through facebook through FB.api and FacebookConnect plugin for Phonegap. Simultaneous upload at http://www.testphotorestapi.neilmarion.com/ #test',
