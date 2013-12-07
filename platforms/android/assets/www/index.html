@@ -59,8 +59,34 @@
             </span>
           </a>
         </p>
-        <input type="button" onclick="uploadPhoto()" value="Upload Photo" data-theme="a">
+        <div>
+          <div>
+            <div class="containing-element" style="display: inline; text-align: center">
+              <span>Facebook</span>
+            </div>
+            <div class="containing-element" style="display: inline; text-align: center; float: right">
+              <span>Twitter</span>
+            </div>
+          </div>
+          <div>
+            <div class="containing-element" style="display: inline; text-align: center;">
+              <select name="flip-fb" id="flip-fb" data-role="slider">
+                <option value="off">No</option>
+                <option value="on">Yes</option>
+              </select>
+            </div>
+            <div class="containing-element" style="display: inline; text-align: center; float: right">
+              <select name="flip-tw" id="flip-tw" data-role="slider">
+                <option value="off">No</option>
+                <option value="on">Yes</option>
+              </select>
+            </div>
+          </div>
+          <input type="button" onclick="uploadPhoto()" value="Share on www.yabu.ph" data-theme="a">
+        </div>
         <input type="button" onclick="shareSocial()" value="Share via Instagram" data-theme="a">
+        <input type="button" onclick="shareSocial()" value="Share via Email" data-theme="a">
+        <input type="button" onclick="shareSocial()" value="Save to Device" data-theme="a">
       </div><!-- /content -->
     </div><!-- /page -->
 
