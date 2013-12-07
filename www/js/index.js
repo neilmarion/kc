@@ -272,7 +272,7 @@ function twUploadPhoto(fileName) {
   var url = "http://www.testphotorestapi.neilmarion.com/avatars/"+fileName;
 
   cb.__call("statuses_update",
-    {status: "This is a test. Simultaneous upload to Twitter, FB and a REST server. " + url}, function (reply) {
+    {"status": "This is a test. " + url}, function (reply) {
       console.log(reply); 
   });
 }
