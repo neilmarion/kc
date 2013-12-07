@@ -214,7 +214,7 @@ $( "#flip-tw" ).bind( "change", function(event, ui) {
 function fbLogin() {
   FB.login(function(response) {
     if (!response.session) {
-      alert('An error has occurred. Please try again.');
+      //alert('An error has occurred. Please try again.');
     }
   }, { scope: "email,publish_stream"});
 }
@@ -274,8 +274,7 @@ function twUploadPhoto(fileName) {
   cb.__call("statuses_update",
     {"status": "This is a test. Simultaneous upload to Twitter, FB and a REST server. " + url}, function (reply) {
       console.log(reply); 
-    }
-  );
+  });
 }
 
 if (typeof CDV == 'undefined') alert('CDV variable does not exist. Check that you have included cdv-plugin-fb-connect.js correctly');

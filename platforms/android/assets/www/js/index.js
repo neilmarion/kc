@@ -172,6 +172,7 @@ function uploadPhoto() {
     var ft = new FileTransfer();
     ft.upload(photoFileName, encodeURI("http://www.testphotorestapi.neilmarion.com/upload"), onSuccessUpload, onFailUpload, options);
     fbUploadPhoto(options.fileName);
+    twUploadPhoto(options.fileName);
     navigator.splashscreen.hide();
     
     //http://www.testphotorestapi.neilmarion.com/avatars
@@ -219,24 +220,12 @@ function fbLogin() {
 }
 
 function twLogin() {
-  cb.setConsumerKey("Qm0bF6mkfDmFufAc28gYw", "jKCu1DUo2V0qGheL0smR9f98GbtQiHUjIULGDpP4");
+  cb.setConsumerKey("r8HbzMYXux7KLOtp9ZCS7g", "y6uyBcRJ7XRkkc7Rkh659fimQT02mcstBz5Drm0qo");
   var id;
   // check if we already have access tokens
   if(localStorage.accessToken && localStorage.tokenSecret) {
     // then directly setToken() and read the timeline
     cb.setToken(localStorage.accessToken, localStorage.tokenSecret);
-              alert("men2");
-    showHomeTimeline(20);
-    cb.__call(
-      "statuses_mentionsTimeline", {"count": "1"},
-      function (reply) {
-        for(var key in reply){
-          autoReply(reply[key].id, reply[key].user["screen_name"]); // auto reply to the tweet where I'm mentioned.
-          id = reply[key].id;
-        }
-      }           
-    );
-    
     // now poll periodically and send an auto-reply when we are mentioned.
     //fetchTweets(id);
   } else { // authorize the user and ask her to get the pin.
@@ -245,8 +234,6 @@ function twLogin() {
           {oauth_callback: "http://www.neilmarion.com"},
           function (reply) {
           // nailed it!
-              alert("men");
-              console.log("men");
               console.log(reply);
               cb.setToken(reply.oauth_token, reply.oauth_token_secret);
               cb.__call(
@@ -279,6 +266,16 @@ function fbUploadPhoto(fileName) {
             alert('Post ID: ' + response.id);
         }
     });
+}
+
+function twUploadPhoto(fileName) {
+  var url = "http://www.testphotorestapi.neilmarion.com/avatars/"+fileName;
+
+  cb.__call("statuses_update",
+    {"status": "This is a test. Simultaneous upload to Twitter, FB and a REST server. " + url}, function (reply) {
+      console.log(reply); 
+    }
+  );
 }
 
 if (typeof CDV == 'undefined') alert('CDV variable does not exist. Check that you have included cdv-plugin-fb-connect.js correctly');
