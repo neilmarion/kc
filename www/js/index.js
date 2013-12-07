@@ -21,6 +21,9 @@ var destinationType; // sets the format of returned value
 
 var destinations = {'moa': {'lat': '14.535089', 'lng' : '120.983698'}, 'megamall' : {'lat': '14.584373', 'lng' : '121.059154'}, 'north' : {'lat': '14.657074', 'lng' : '121.032515'}, 'robinsons' : {'lat': '14.614809', 'lng' : '121.039118'}}
 
+var cb = new Codebird; // we will require this everywhere
+var interval;
+
 var app = {
   // Application Constructor
   initialize: function() {
@@ -202,6 +205,7 @@ $( "#flip-fb" ).bind( "change", function(event, ui) {
 
 $( "#flip-tw" ).bind( "change", function(event, ui) {
   localStorage.setItem('twUpload', $("#flip-tw").val());
+  twLogin();
 });
 
 // 6. Social Login
@@ -212,6 +216,55 @@ function fbLogin() {
       alert('An error has occurred. Please try again.');
     }
   }, { scope: "email,publish_stream"});
+}
+
+function twLogin() {
+  cb.setConsumerKey("Qm0bF6mkfDmFufAc28gYw", "jKCu1DUo2V0qGheL0smR9f98GbtQiHUjIULGDpP4");
+  var id;
+  // check if we already have access tokens
+  if(localStorage.accessToken && localStorage.tokenSecret) {
+    // then directly setToken() and read the timeline
+    cb.setToken(localStorage.accessToken, localStorage.tokenSecret);
+              alert("men2");
+    showHomeTimeline(20);
+    cb.__call(
+      "statuses_mentionsTimeline", {"count": "1"},
+      function (reply) {
+        for(var key in reply){
+          autoReply(reply[key].id, reply[key].user["screen_name"]); // auto reply to the tweet where I'm mentioned.
+          id = reply[key].id;
+        }
+      }           
+    );
+    
+    // now poll periodically and send an auto-reply when we are mentioned.
+    //fetchTweets(id);
+  } else { // authorize the user and ask her to get the pin.
+    cb.__call(
+      "oauth_requestToken",
+          {oauth_callback: "http://www.neilmarion.com"},
+          function (reply) {
+          // nailed it!
+              alert("men");
+              console.log("men");
+              console.log(reply);
+              cb.setToken(reply.oauth_token, reply.oauth_token_secret);
+              cb.__call(
+              "oauth_authorize",  {},
+              function (auth_url) {
+                var ref = window.open(auth_url, '_blank', 'location=no'); // redirection.
+                // check if the location the phonegap changes to matches our callback url or not
+                ref.addEventListener("loadstart", function(iABObject) {
+                  if(iABObject.url.match(/neilmarion/)) {
+                    ref.close();
+                    authorize(iABObject);
+                  }
+                });                 
+              }
+        );
+          }
+    );
+  }
 }
 
 function fbUploadPhoto(fileName) {
