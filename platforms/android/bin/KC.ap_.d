@@ -28,6 +28,7 @@
 /home/neilmarion/DEV/kc/platforms/android/assets/www/js/index.js \
 /home/neilmarion/DEV/kc/platforms/android/assets/www/js/jquery.ui.map.js \
 /home/neilmarion/DEV/kc/platforms/android/assets/www/js/demo.js \
+/home/neilmarion/DEV/kc/platforms/android/assets/www/js/SocialSharing.js \
 /home/neilmarion/DEV/kc/platforms/android/assets/www/js/jquery-1.9.1.min.js \
 /home/neilmarion/DEV/kc/platforms/android/assets/www/js/jquery.ui.map.extensions.js \
 /home/neilmarion/DEV/kc/platforms/android/assets/www/js/jquery.mobile-1.3.2.min.js \
@@ -44,6 +45,7 @@
 /home/neilmarion/DEV/kc/platforms/android/assets/www/img/logo.png \
 /home/neilmarion/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.splashscreen \
 /home/neilmarion/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.geolocation \
+/home/neilmarion/DEV/kc/platforms/android/assets/www/plugins/nl.x-services.plugins.socialsharing \
 /home/neilmarion/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.media-capture \
 /home/neilmarion/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.inappbrowser \
 /home/neilmarion/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.media \
@@ -57,6 +59,8 @@
 /home/neilmarion/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.geolocation/www/Coordinates.js \
 /home/neilmarion/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.geolocation/www/geolocation.js \
 /home/neilmarion/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.geolocation/www/PositionError.js \
+/home/neilmarion/DEV/kc/platforms/android/assets/www/plugins/nl.x-services.plugins.socialsharing/www \
+/home/neilmarion/DEV/kc/platforms/android/assets/www/plugins/nl.x-services.plugins.socialsharing/www/SocialSharing.js \
 /home/neilmarion/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.media-capture/www \
 /home/neilmarion/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.media-capture/www/capture.js \
 /home/neilmarion/DEV/kc/platforms/android/assets/www/plugins/org.apache.cordova.media-capture/www/MediaFileData.js \

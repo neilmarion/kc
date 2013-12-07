@@ -182,3 +182,12 @@ function onFailUpload(error) {
     console.log("upload error source " + error.source);
     console.log("upload error target " + error.target);
 }
+
+// 5. Photo sharing
+
+function shareSocial() {
+  photoFileName = $('#photo').attr('src');
+  alert(photoFileName);
+  window.plugins.socialsharing.share('#testing #prototype #phonegap #app', null, photoFileName, null);
+}
+

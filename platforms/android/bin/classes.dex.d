@@ -77,6 +77,7 @@
 /home/neilmarion/DEV/kc/platforms/android/bin/classes/org/apache/cordova/file/FileUtils$13.class \
 /home/neilmarion/DEV/kc/platforms/android/bin/classes/org/apache/cordova/file/FileExistsException.class \
 /home/neilmarion/DEV/kc/platforms/android/bin/classes/org/apache/cordova/file/FileUtils$21.class \
+/home/neilmarion/DEV/kc/platforms/android/bin/classes/nl/xservices/plugins/SocialSharing.class \
 /home/neilmarion/DEV/kc/platforms/android/bin/classes/com/neilmarion/kc/R$string.class \
 /home/neilmarion/DEV/kc/platforms/android/bin/classes/com/neilmarion/kc/KC.class \
 /home/neilmarion/DEV/kc/platforms/android/bin/classes/com/neilmarion/kc/R.class \
