@@ -219,7 +219,7 @@ function fbLogin() {
 }
 
 function twLogin() {
-  cb.setConsumerKey("Qm0bF6mkfDmFufAc28gYw", "jKCu1DUo2V0qGheL0smR9f98GbtQiHUjIULGDpP4");
+  cb.setConsumerKey("r8HbzMYXux7KLOtp9ZCS7g", "y6uyBcRJ7XRkkc7Rkh659fimQT02mcstBz5Drm0qo");
   var id;
   // check if we already have access tokens
   if(localStorage.accessToken && localStorage.tokenSecret) {

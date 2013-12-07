@@ -32,10 +32,12 @@
 /home/neilmarion/DEV/kc/platforms/android/assets/www/js/jquery-1.9.1.min.js \
 /home/neilmarion/DEV/kc/platforms/android/assets/www/js/jquery.ui.map.extensions.js \
 /home/neilmarion/DEV/kc/platforms/android/assets/www/js/cdv-plugin-fb-connect.js \
+/home/neilmarion/DEV/kc/platforms/android/assets/www/js/codebird.js \
 /home/neilmarion/DEV/kc/platforms/android/assets/www/js/jquery.mobile-1.3.2.min.js \
 /home/neilmarion/DEV/kc/platforms/android/assets/www/js/modernizr.min.js \
 /home/neilmarion/DEV/kc/platforms/android/assets/www/js/jquery.ui.map.services.js \
 /home/neilmarion/DEV/kc/platforms/android/assets/www/js/facebook-js-sdk.js \
+/home/neilmarion/DEV/kc/platforms/android/assets/www/js/sha1.js \
 /home/neilmarion/DEV/kc/platforms/android/assets/www/spec/index.js \
 /home/neilmarion/DEV/kc/platforms/android/assets/www/spec/helper.js \
 /home/neilmarion/DEV/kc/platforms/android/assets/www/spec/lib \
