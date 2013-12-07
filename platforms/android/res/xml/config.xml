@@ -67,6 +67,9 @@
     <feature name="SocialSharing">
         <param name="android-package" value="nl.xservices.plugins.SocialSharing" />
     </feature>
+    <feature name="org.apache.cordova.facebook.Connect">
+        <param name="android-package" value="org.apache.cordova.facebook.ConnectPlugin" />
+    </feature>
     <content src="index.html" />
     <access origin="*" />
     <preference name="useBrowserHistory" value="true" />

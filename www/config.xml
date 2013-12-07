@@ -61,6 +61,10 @@
     <feature name="org.apache.cordova.facebook.Connect">
         <param name="android-package" value="org.apache.cordova.facebook.ConnectPlugin" />
     </feature>
+    <gap:plugin name="com.phonegap.plugins.facebookconnect">
+        <param name="APP_ID" value="470089076435075" />
+        <param name="APP_NAME" value="phonegapprotoone" />
+    </gap:plugin>
     <access origin="*" />
     <content src="index.html" />
 </widget>

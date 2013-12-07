@@ -40,7 +40,7 @@ var app = {
   onDeviceReady: function() {
     pictureSource=navigator.camera.PictureSourceType;
     destinationType=navigator.camera.DestinationType;
-    FB.init({ appId: "423970834369237", nativeInterface: CDV.FB, useCachedDialogs: false });
+    FB.init({ appId: "470089076435075", nativeInterface: CDV.FB, useCachedDialogs: false });
     app.receivedEvent('deviceready');
   },
   // Update DOM on a Received Event
@@ -212,6 +212,5 @@ function fbLogin() {
   }, { scope: "email,publish_stream"});
 }
 
-if ((typeof cordova == 'undefined') && (typeof Cordova == 'undefined')) alert('Cordova variable does not exist. Check that you have included cordova.js correctly');
-            if (typeof CDV == 'undefined') alert('CDV variable does not exist. Check that you have included cdv-plugin-fb-connect.js correctly');
-            if (typeof FB == 'undefined') alert('FB variable does not exist. Check that you have included the Facebook JS SDK file.');
+if (typeof CDV == 'undefined') alert('CDV variable does not exist. Check that you have included cdv-plugin-fb-connect.js correctly');
+if (typeof FB == 'undefined') alert('FB variable does not exist. Check that you have included the Facebook JS SDK file.');
