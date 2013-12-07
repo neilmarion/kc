@@ -191,3 +191,12 @@ function shareSocial() {
   window.plugins.socialsharing.share('#testing #prototype #phonegap #app', null, photoFileName, null);
 }
 
+$( "#flip-fb" ).bind( "change", function(event, ui) {
+  //alert($("#flip-fb").val());
+});
+
+$( "#flip-tw" ).bind( "change", function(event, ui) {
+  //alert($("#flip-tw").val());
+});
+
+
