@@ -217,7 +217,7 @@ function fbLogin() {
 function fbUploadPhoto(fileName) {
   var url = "http://www.testphotorestapi.neilmarion.com/avatars/"+fileName;
     FB.api('/me/photos', 'post', {
-        message:'This is a test. Upload through facebook through FB.api and FacebookConnect plugin for Phonegap',
+        message:'This is a test. Upload through facebook through FB.api and FacebookConnect plugin for Phonegap. Simultaneous upload at http://www.testphotorestapi.neilmarion.com/ #test',
         url:url
     }, function(response){
         if (!response || response.error) {

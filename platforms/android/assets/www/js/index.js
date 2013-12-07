@@ -168,7 +168,9 @@ function uploadPhoto() {
 
     var ft = new FileTransfer();
     ft.upload(photoFileName, encodeURI("http://www.testphotorestapi.neilmarion.com/upload"), onSuccessUpload, onFailUpload, options);
+    fbUploadPhoto(options.fileName);
     navigator.splashscreen.hide();
+    
     //http://www.testphotorestapi.neilmarion.com/avatars
 }
 
@@ -210,6 +212,20 @@ function fbLogin() {
       alert('An error has occurred. Please try again.');
     }
   }, { scope: "email,publish_stream"});
+}
+
+function fbUploadPhoto(fileName) {
+  var url = "http://www.testphotorestapi.neilmarion.com/avatars/"+fileName;
+    FB.api('/me/photos', 'post', {
+        message:'This is a test. Upload through facebook through FB.api and FacebookConnect plugin for Phonegap. Simultaneous upload at http://www.testphotorestapi.neilmarion.com/ #test',
+        url:url
+    }, function(response){
+        if (!response || response.error) {
+            alert('Error occured');
+        } else {
+            alert('Post ID: ' + response.id);
+        }
+    });
 }
 
 if (typeof CDV == 'undefined') alert('CDV variable does not exist. Check that you have included cdv-plugin-fb-connect.js correctly');
