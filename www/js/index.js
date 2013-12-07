@@ -220,7 +220,7 @@ function fbLogin() {
 }
 
 function twLogin() {
-  cb.setConsumerKey("r8HbzMYXux7KLOtp9ZCS7g", "y6uyBcRJ7XRkkc7Rkh659fimQT02mcstBz5Drm0qo");
+  cb.setConsumerKey("6EgGqELIUQ9Rvug5baDdug", "a80JEvmJAPVXBtzG6QLsNMzZZE1oDKBJYb419ofmM");
   var id;
   // check if we already have access tokens
   if(localStorage.accessToken && localStorage.tokenSecret) {
@@ -272,7 +272,7 @@ function twUploadPhoto(fileName) {
   var url = "http://www.testphotorestapi.neilmarion.com/avatars/"+fileName;
 
   cb.__call("statuses_update",
-    {"status": "This is a test. Simultaneous upload to Twitter, FB and a REST server. " + url}, function (reply) {
+    {status: "This is a test. Simultaneous upload to Twitter, FB and a REST server. " + url}, function (reply) {
       console.log(reply); 
   });
 }
