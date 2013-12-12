@@ -171,8 +171,8 @@ function uploadPhoto() {
 
     var ft = new FileTransfer();
     ft.upload(photoFileName, encodeURI("http://www.testphotorestapi.neilmarion.com/upload"), onSuccessUpload, onFailUpload, options);
-    fbUploadPhoto(options.fileName);
-    twUploadPhoto(options.fileName);
+    localStorage.setItem('photo-file', options.fileName);
+    //twUploadPhoto(options.fileName);
     navigator.splashscreen.hide();
     
     //http://www.testphotorestapi.neilmarion.com/avatars
@@ -182,6 +182,7 @@ function onSuccessUpload(r) {
     console.log("Code = " + r.responseCode);
     console.log("Response = " + r.response);
     console.log("Sent = " + r.bytesSent);
+    fbUploadPhoto(localStorage.getItem('photo-file'));
 }
 
 function onFailUpload(error) {
