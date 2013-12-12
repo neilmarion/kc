@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
+import android.os.Parcelable;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.PluginResult;
@@ -14,6 +15,7 @@ import org.json.JSONException;
 import java.io.*;
 import java.net.URL;
 import java.util.List;
+import java.util.ArrayList;
 
 public class SocialSharing extends CordovaPlugin {
 
@@ -72,10 +74,62 @@ public class SocialSharing extends CordovaPlugin {
     return null;
   }
 
+  public Intent findInstagramClient() {
+    final String[] twitterApps = {
+        // package // name - nb installs (thousands)
+        "com.instagram.android", // official - 10 000
+    };
+    Intent tweetIntent = new Intent();
+    tweetIntent.setType("image/*");
+    final PackageManager packageManager = webView.getContext().getPackageManager();
+    List<ResolveInfo> list = packageManager.queryIntentActivities(
+        tweetIntent, PackageManager.MATCH_DEFAULT_ONLY);
+ 
+    for (int i = 0; i < twitterApps.length; i++) {
+      for (ResolveInfo resolveInfo : list) {
+        String p = resolveInfo.activityInfo.packageName;
+        if (p != null && p.startsWith(twitterApps[i])) {
+          tweetIntent.setPackage(p);
+          return tweetIntent;
+        }
+      }
+    }
+    return null;
+  }
 
+  //private void share(String nameApp, String imagePath) {
+  private void doSendIntent(String subject, String message, String image, String url) throws IOException {
+    String nameApp = "twitter";
+    List<Intent> targetedShareIntents = new ArrayList<Intent>();
+    Intent share = new Intent(android.content.Intent.ACTION_SEND);
+    share.setType("image/*");
+    List<ResolveInfo> resInfo = webView.getContext().getPackageManager().queryIntentActivities(share, 0);
+    if (!resInfo.isEmpty()){
+        for (ResolveInfo info : resInfo) {
+            Intent targetedShare = new Intent(android.content.Intent.ACTION_SEND);
+            targetedShare.setType("image/jpeg"); // put here your mime type
+
+            if (info.activityInfo.packageName.toLowerCase().contains(nameApp) || 
+                    info.activityInfo.name.toLowerCase().contains(nameApp)) {
+                targetedShare.putExtra(Intent.EXTRA_TEXT,     "My body of post/email");
+                targetedShare.putExtra(Intent.EXTRA_STREAM, Uri.parse(image));
+                targetedShare.setPackage(info.activityInfo.packageName);
+                targetedShareIntents.add(targetedShare);
+            }
+        }
+
+        Intent chooserIntent = Intent.createChooser(targetedShareIntents.remove(0), "Select app to share");
+        chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, targetedShareIntents.toArray(new Parcelable[]{}));
+        //startActivity(chooserIntent);
+        webView.getContext().startActivity(chooserIntent);
+        //this.cordova.startActivityForResult(this, chooserIntent, 0);
+    }
+  }
+
+/*
   private void doSendIntent(String subject, String message, String image, String url) throws IOException {
     //final Intent sendIntent = new Intent(android.content.Intent.ACTION_SEND);
-    final Intent sendIntent = findTwitterClient(); 
+    final Intent sendIntent = findInstagramClient(); 
     final String dir = webView.getContext().getExternalFilesDir(null) + "/socialsharing-downloads";
     createDir(dir);
     sendIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
@@ -87,7 +141,7 @@ public class SocialSharing extends CordovaPlugin {
       sendIntent.setType("image/*");
       if (image.startsWith("http") || image.startsWith("www/")) {
         final String filename = getFileName(image);
-        localImage = "file://" + dir + "/" + filename;
+        //localImage = "file://" + dir + "/" + filename;
         if (image.startsWith("http")) {
           downloadFromUrl(new URL(image).openConnection().getInputStream(), dir, filename);
         } else {
@@ -96,7 +150,8 @@ public class SocialSharing extends CordovaPlugin {
       } else if (!image.startsWith("file://")) {
         throw new IllegalArgumentException("URL_NOT_SUPPORTED");
       }
-      sendIntent.putExtra(android.content.Intent.EXTRA_STREAM, Uri.parse(localImage));
+      //sendIntent.putExtra(android.content.Intent.EXTRA_STREAM, Uri.parse(localImage));
+      sendIntent.putExtra(android.content.Intent.EXTRA_STREAM, Uri.fromFile(new File(localImage)));
     }
     if (!"".equals(subject) && !"null".equalsIgnoreCase(subject)) {
       sendIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
@@ -115,6 +170,8 @@ public class SocialSharing extends CordovaPlugin {
 
     this.cordova.startActivityForResult(this, sendIntent, 0);
   }
+
+*/
 
   // cleanup after ourselves
   public void onActivityResult(int requestCode, int resultCode, Intent intent) {
