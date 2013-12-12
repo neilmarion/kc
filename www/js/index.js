@@ -159,7 +159,7 @@ $(document).on("pageshow", "#directions_map", function () {
 // 4. Upload photo to yabu.ph
 
 function uploadPhoto() {
-    navigator.notification.activityStart("Your message....", "loading");
+    //navigator.notification.activityStart("Your message....", "loading");
     photoFileName = $('#photo').attr('src');
     var options = new FileUploadOptions();
     options.fileKey="avatar";
@@ -174,7 +174,7 @@ function uploadPhoto() {
     localStorage.setItem('photo-file', options.fileName);
     //twUploadPhoto(options.fileName);
     //http://www.testphotorestapi.neilmarion.com/avatars
-    navigator.notification.activityStop();
+    //navigator.notification.activityStop();
 }
 
 function onSuccessUpload(r) {
@@ -185,6 +185,8 @@ function onSuccessUpload(r) {
     if(localStorage.getItem('fbUpload') == 'on') {
       fbUploadPhoto(localStorage.getItem('photo-file'));
     }
+
+    alert("Upload successful!");
 }
 
 function onFailUpload(error) {
