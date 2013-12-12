@@ -35,7 +35,8 @@ public class SocialSharing extends CordovaPlugin {
         final String subject = args.getString(1);
         final String image = args.getString(2);
         final String url = args.getString(3);
-        doSendIntent(subject, message, image, url);
+        final String nameApp = args.getString(4);
+        doSendIntent(nameApp, subject, message, image, url);
         callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK));
         return true;
       } else {
@@ -98,12 +99,12 @@ public class SocialSharing extends CordovaPlugin {
   }
 
   //private void share(String nameApp, String imagePath) {
-  private void doSendIntent(String subject, String message, String image, String url) throws IOException {
-    String nameApp = "twitter";
+  private void doSendIntent(String nameApp, String subject, String message, String image, String url) throws IOException {
     List<Intent> targetedShareIntents = new ArrayList<Intent>();
     Intent share = new Intent(android.content.Intent.ACTION_SEND);
     share.setType("image/*");
     List<ResolveInfo> resInfo = webView.getContext().getPackageManager().queryIntentActivities(share, 0);
+    nameApp = "email";
     if (!resInfo.isEmpty()){
         for (ResolveInfo info : resInfo) {
             Intent targetedShare = new Intent(android.content.Intent.ACTION_SEND);
