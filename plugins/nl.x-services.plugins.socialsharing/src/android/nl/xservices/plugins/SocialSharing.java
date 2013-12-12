@@ -43,8 +43,35 @@ public class SocialSharing extends CordovaPlugin {
     }
   }
 
+  public Intent findTwitterClient() {
+    final String[] twitterApps = {
+        // package // name - nb installs (thousands)
+        "com.twitter.android", // official - 10 000
+        "com.twidroid", // twidroyd - 5 000
+        "com.handmark.tweetcaster", // Tweecaster - 5 000
+        "com.thedeck.android" // TweetDeck - 5 000 };
+    }
+    Intent tweetIntent = new Intent();
+    tweetIntent.setType("image/*");
+    final PackageManager packageManager = getPackageManager();
+    List<resolveinfo> list = packageManager.queryIntentActivities(
+        tweetIntent, PackageManager.MATCH_DEFAULT_ONLY);
+ 
+    for (int i = 0; i < twitterApps.length; i++) {
+      for (ResolveInfo resolveInfo : list) {
+        String p = resolveInfo.activityInfo.packageName;
+        if (p != null && p.startsWith(twitterApps[i])) {
+          tweetIntent.setPackage(p);
+          return tweetIntent;
+        }
+      }
+    }
+    return null;
+  }
+
   private void doSendIntent(String subject, String message, String image, String url) throws IOException {
-    final Intent sendIntent = new Intent(android.content.Intent.ACTION_SEND);
+    //final Intent sendIntent = new Intent(android.content.Intent.ACTION_SEND);
+    final Intent sendIntent = findTwitterClient(); 
     final String dir = webView.getContext().getExternalFilesDir(null) + "/socialsharing-downloads";
     createDir(dir);
     sendIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
