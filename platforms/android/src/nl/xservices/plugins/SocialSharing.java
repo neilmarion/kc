@@ -111,7 +111,7 @@ public class SocialSharing extends CordovaPlugin {
 
             if (info.activityInfo.packageName.toLowerCase().contains(nameApp) || 
                     info.activityInfo.name.toLowerCase().contains(nameApp)) {
-                targetedShare.putExtra(Intent.EXTRA_TEXT,     "My body of post/email");
+                targetedShare.putExtra(Intent.EXTRA_TEXT, subject);
                 targetedShare.putExtra(Intent.EXTRA_STREAM, Uri.parse(image));
                 targetedShare.setPackage(info.activityInfo.packageName);
                 targetedShareIntents.add(targetedShare);

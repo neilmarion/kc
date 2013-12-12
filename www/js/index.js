@@ -200,7 +200,6 @@ function onFailUpload(error) {
 
 function shareSocial(app) {
   photoFileName = $('#photo').attr('src');
-  alert(photoFileName);
   window.plugins.socialsharing.share('#testing #prototype #phonegap #app', null, photoFileName, null, app);
 }
 
