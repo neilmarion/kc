@@ -104,7 +104,6 @@ public class SocialSharing extends CordovaPlugin {
     Intent share = new Intent(android.content.Intent.ACTION_SEND);
     share.setType("image/*");
     List<ResolveInfo> resInfo = webView.getContext().getPackageManager().queryIntentActivities(share, 0);
-    nameApp = "email";
     if (!resInfo.isEmpty()){
         for (ResolveInfo info : resInfo) {
             Intent targetedShare = new Intent(android.content.Intent.ACTION_SEND);

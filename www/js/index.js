@@ -198,10 +198,10 @@ function onFailUpload(error) {
 
 // 5. Photo sharing
 
-function shareSocial() {
+function shareSocial(app) {
   photoFileName = $('#photo').attr('src');
   alert(photoFileName);
-  window.plugins.socialsharing.share('#testing #prototype #phonegap #app', null, photoFileName, null, 'email');
+  window.plugins.socialsharing.share('#testing #prototype #phonegap #app', null, photoFileName, null, app);
 }
 
 $( "#flip-fb" ).bind( "change", function(event, ui) {
