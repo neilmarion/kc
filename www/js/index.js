@@ -159,7 +159,7 @@ $(document).on("pageshow", "#directions_map", function () {
 // 4. Upload photo to yabu.ph
 
 function uploadPhoto() {
-    navigator.splashscreen.show();
+    navigator.notification.activityStart("Your message....", "loading");
     photoFileName = $('#photo').attr('src');
     var options = new FileUploadOptions();
     options.fileKey="avatar";
@@ -173,16 +173,18 @@ function uploadPhoto() {
     ft.upload(photoFileName, encodeURI("http://www.testphotorestapi.neilmarion.com/upload"), onSuccessUpload, onFailUpload, options);
     localStorage.setItem('photo-file', options.fileName);
     //twUploadPhoto(options.fileName);
-    navigator.splashscreen.hide();
-    
     //http://www.testphotorestapi.neilmarion.com/avatars
+    navigator.notification.activityStop();
 }
 
 function onSuccessUpload(r) {
     console.log("Code = " + r.responseCode);
     console.log("Response = " + r.response);
     console.log("Sent = " + r.bytesSent);
-    fbUploadPhoto(localStorage.getItem('photo-file'));
+    
+    if(localStorage.getItem('fbUpload') == 'on') {
+      fbUploadPhoto(localStorage.getItem('photo-file'));
+    }
 }
 
 function onFailUpload(error) {
@@ -277,6 +279,7 @@ function twUploadPhoto(fileName) {
       console.log(reply); 
   });
 }
+
 
 if (typeof CDV == 'undefined') alert('CDV variable does not exist. Check that you have included cdv-plugin-fb-connect.js correctly');
 if (typeof FB == 'undefined') alert('FB variable does not exist. Check that you have included the Facebook JS SDK file.');
